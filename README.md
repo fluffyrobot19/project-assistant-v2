@@ -37,11 +37,11 @@ After cloning the repository and navigating to the root directory of the project
 
 At this stage of the development, you will also need environmental variables. Please create a .env file within the backend folder with the following in order to run with your postgres server:
 
-    HOST='localhost'
-    PORT=5000
-    DB_PORT=5432
-    DB_USERNAME='your postgres username'
-    DB_PASSWORD='your postgres password'
+    HOST
+    PORT
+    DB_PORT
+    DB_USERNAME
+    DB_PASSWORD
 
 You may choose your own port for running the Flask server, these are the default ports.
 
