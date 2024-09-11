@@ -3,7 +3,7 @@
 ### About the project
 
 A basic financial control application custom designed for a non-profit organisation that allows members to manage and compare European Commission-funded project budgets.
-Its purpose is to alleviate the reliance on multiple spreadsheets for tracking project budgets and streamlining related financial processes.
+Its purpose is to alleviate the reliance on multiple spreadsheets for tracking project budgets and to streamline financial processes.
 
 **Core features of application**
 
@@ -43,8 +43,6 @@ At this stage of the development, you will also need environmental variables. Pl
     DB_USERNAME
     DB_PASSWORD
 
-You may choose your own port for running the Flask server, these are the default ports.
-
 ### How to run
 
 You may run the `main.py` file from your favourite IDE, or, from the command line after navigating to the root folder and activating the venv:
@@ -52,7 +50,7 @@ You may run the `main.py` file from your favourite IDE, or, from the command lin
     source .venv/bin/activate
     python3 main.py
 
-### Upcoming stages in development
+### Next steps in development
 
 ![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white) <br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) <br>
