@@ -14,7 +14,7 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 
 **Personal goals**
 
-- Learning a new stack - Python / Flask / Svelte 
+- Learning a new stack - Python / Flask 
 - Practicing containerization and building CI/CD pipeline
 - Practicing process automation and optimization with scripts
 - Advancing my learning process in AWS resources
@@ -23,7 +23,8 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) <br>
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) <br>
-![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) <br>
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ### Dependencies
 
@@ -52,7 +53,6 @@ You may run the `main.py` file from your favourite IDE, or, from the command lin
 
 ### Next steps in development
 
-![Svelte](https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white) <br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) <br>
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) <br>
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) <br>

@@ -10,11 +10,5 @@ if __name__ == '__main__':
             port=os.getenv('PORT'),
             debug=True)
 
-# express api endpoints
-# orm sql
-# unit tests (ci)
-# server: integration test
 
-# docker
-# github actions
 

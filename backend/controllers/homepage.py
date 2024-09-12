@@ -1,14 +1,11 @@
-from flask import Blueprint, request
+from flask import Blueprint, render_template
 
 home_bp = Blueprint('home', __name__, url_prefix='/home')
 
 
 @home_bp.route('/')
 def home():
-    return ('<h1>homepage</h1>'
-            '<a href="my-profile">My profile</a><br>'
-            '<a href="projects">Projects</a><br>'
-            '<a href="reports">Reports</a><br>')
+    return render_template("base_home.html")
 
 
 @home_bp.route('/my-profile')
