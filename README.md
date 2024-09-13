@@ -30,16 +30,21 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 
 You will need Docker to run the app.
 
-### How to run
+### How to run at this stage of development
 
-At this stage of the development, you can build and run the `docker-compose.yml` file after navigating to the root directory:
+1. First, you will need environmental variables. Please copy the contents of `.env.example` to a `.env` file in the root directory, and fill in with the correct values.
+
+2. After setting up your .env file, you can build and run the `docker-compose.yml` file after navigating to the root directory:
+
 
     docker-compose build
     docker-compose up -d
 
-You will be able to reach the app by visiting http://localhost:5000.
+3. Visit http://localhost:5000.
 
-### Next steps in development
+4. You should be able to log in with the credentials of either of the three template users. You can find them in `/backend/models/test_users.json`.
+
+### Coming up...
 
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) <br>
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) <br>

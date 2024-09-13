@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     username = db.Column(db.String(100))
-    password = db.Column(db.String(200))
+    password = db.Column(db.Text())
 
     def __init__(self, id, first_name, last_name, email, username, password):
         self.id = id
