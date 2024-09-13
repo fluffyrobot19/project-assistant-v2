@@ -36,9 +36,8 @@ You will need Docker to run the app.
 
 2. After setting up your .env file, you can build and run the `docker-compose.yml` file after navigating to the root directory:
 
-
-    docker-compose build
-    docker-compose up -d
+        docker-compose build
+        docker-compose up -d
 
 3. Visit http://localhost:5000.
 
