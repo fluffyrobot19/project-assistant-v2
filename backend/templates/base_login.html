@@ -1,9 +1,15 @@
 <html>
   <head>
-    <h1>Project Assistant</h1>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>Project Assistant</title>
+    <h2>Project Assistant</h2>
   </head>
   <body>
+    {% if index %}
+      <button type="button" onclick="window.location.href='{{ url_for( 'login.login')}}';">Login</button>
+    {% endif %}
     {% block content %}{% endblock %}
   </body>
 </html>

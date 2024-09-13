@@ -1,29 +1,30 @@
-from flask import Blueprint, redirect, render_template
-
+from flask import Blueprint, redirect, render_template, url_for
+from flask_login import login_user
 from backend.models.forms.login_form import LoginForm
-import requests
+from backend.models.models import User
 
-login_bp = Blueprint('login', __name__, url_prefix='/')
+login_bp = Blueprint('login', __name__)
 
 
-@login_bp.route('/', methods=['GET', 'POST'])
+@login_bp.route('/', methods=['GET'])
 def index():
-    users = requests.get("http://localhost:5000/api/users").json()
+    return render_template("base_login.html", index=True)
+
+
+@login_bp.route('/login/', methods=['GET', 'POST'])
+def login():
+    # users = requests.get("http://localhost:5000/api/users").json()
     form = LoginForm()
 
     if form.validate_on_submit():
-        form_data = form.data
-        username = form_data['username']
-        password = form_data['password']
+        username = form.data['username']
+        password = form.data['password']
+        user = User.query.filter_by(username=username).first()
 
-        for user in users:
-            print(user['username'])
+        if user and user.is_password_correct(password):
+            login_user(user)
+            return redirect(url_for('home.home'))
 
-            if username == user['username'] and password == user['password']:
-                redirect("http://localhost:5000/home")
-            else:
-                print('invalid login')
-
-    return render_template("login.html", form=form)
+    return render_template('login.html', form=form)
 
 

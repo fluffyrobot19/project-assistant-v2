@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
-from backend.models.model_user import User
+from backend.models.models import User
 
-users_api_bp = Blueprint('users', __name__, url_prefix='/api/users')
+users_api_bp = Blueprint('users', __name__)
 
 
 @users_api_bp.route('/')
