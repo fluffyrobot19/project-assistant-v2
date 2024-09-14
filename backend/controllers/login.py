@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, redirect, render_template, url_for, session
 from flask_login import login_user
 from backend.models.forms.login_form import LoginForm
 from backend.models.models import User
@@ -23,8 +23,12 @@ def login():
 
         if user and user.is_password_correct(password):
             login_user(user)
-            return redirect(url_for('home.home'))
+            return redirect(url_for('home.index'))
 
     return render_template('login.html', form=form)
 
 
+@login_bp.route('/logout/')
+def logout():
+    session['logged_in'] = False
+    return redirect(url_for('login.index'))

@@ -1,0 +1,56 @@
+body {
+    align-items: center;
+    background-color: #708090;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+#main-container {
+    height: 300px;
+    margin: 0 auto;
+    width: 500px;
+}
+
+#title {
+    color: white;
+    font-family: roboto;
+    font-size: 40px;
+}
+
+form {
+    color: white;
+    font-family: Courier New;
+}
+
+.btn {
+    background: #00BFFF;
+    border: 0;
+    border-radius: .375rem;
+    color: #fff;
+    cursor: pointer;
+    font-family: Circular,Helvetica,sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin-top: 10px;
+    padding: 10px 16px;
+    text-align: center;
+}
+
+/* button */
+.button-79 {
+    background: #00BFFF;
+    border: 0;
+    border-radius: .375rem;
+    color: #fff;
+    cursor: pointer;
+    font-family: Circular,Helvetica,sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin-top: 10px;
+    padding: 10px 16px;
+    text-align: center;
+}

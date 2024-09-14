@@ -1,0 +1,22 @@
+{% extends 'base_home.html' %}
+
+{% block content %}
+
+<div id="home-container">
+    <div id="welcome-msg">Welcome {{ user }}!</div>
+    <div id="msgs">
+        <div id="notifications">Notifications
+            <div id="notifications-container">notifications</div>
+        </div>
+        <div id="deadlines">Upcoming deadlines
+            <div id="deadlines-container">deadlines</div>
+        </div>
+    </div>
+    <div id="dashboard">Dashboard
+        <div id="projects-at-glance">Projects at glance</div>
+    </div>
+
+
+</div>
+
+{% endblock %}

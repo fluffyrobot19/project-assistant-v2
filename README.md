@@ -23,25 +23,17 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) <br>
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) <br>
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) <br>
-![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) <br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) <br>
 
 ### Dependencies
 
-You will need Docker to run the app.
+You will need Postgres and Docker to run the app.
 
 ### How to run at this stage of development
 
-1. First, you will need environmental variables. Please copy the contents of `.env.example` to a `.env` file in the root directory, and fill in with the correct values.
-
-2. After setting up your .env file, you can build and run the `docker-compose.yml` file after navigating to the root directory:
-
-        docker-compose build
-        docker-compose up -d
-
-3. Visit http://localhost:5000.
-
-4. You should be able to log in with the credentials of either of the three template users. You can find them in `/backend/models/test_users.json`.
+Please run the `RUN.sh` script from your terminal. 
+This script will help set up your `.env` file as well as run the `Dockerfile` and `docker-compose.yml` files. Please also make sure to have your Docker application running and your Postgres server NOT running as there might be a conflict.
+After finishing, the script will also remove the recently created image.
 
 ### Coming up...
 
