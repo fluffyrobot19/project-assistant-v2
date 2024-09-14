@@ -22,10 +22,11 @@ if [[ "$user_input" == "y" ]]; then
 	docker-compose up -d
 	echo
 	echo "Visit Project Assistant at http://localhost:3000"
-	read -p "Press 'd' in order to stop the container and remove the image: " down
+	read -p "Press 'd' in order to stop the container, remove the image as well as the .env file: " down
 	if [[ "$down" == "d" ]]; then
 		docker-compose down
 		docker rmi $(docker images | awk '{print $1}' | awk 'NR==2')
+		rm $(find . -type f -name ".env")
 	fi
 else
 	echo "Exiting the program now."

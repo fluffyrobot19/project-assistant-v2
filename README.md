@@ -32,8 +32,12 @@ You will need Postgres and Docker to run the app.
 ### How to run at this stage of development
 
 Please run the `RUN.sh` script from your terminal. 
-This script will help set up your `.env` file as well as run the `Dockerfile` and `docker-compose.yml` files. Please also make sure to have your Docker application running and your Postgres server NOT running as there might be a conflict.
-After finishing, the script will also remove the recently created image.
+
+This script will help set up your `.env` file as well as run the `Dockerfile` and `docker-compose.yml` files. 
+
+Please also make sure to have your Docker application running and your Postgres server NOT running as there might be a conflict.
+
+After finishing, the script will also remove the recently created Docker image as well as `.env` file.
 
 ### Coming up...
 
