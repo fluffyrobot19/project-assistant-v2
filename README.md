@@ -31,11 +31,9 @@ You will need Docker to run the app.
 
 ### How to run at this stage of development
 
-First, please make sure that you have Docker running.
+Please run the `RUN.sh` script from a Bash terminal. 
 
-Then please run the `RUN.sh` script from your terminal. 
-
-This script will check if port 3000 and 5432 are free, for Flask and Postgres, as well as run the `Dockerfile` and `docker-compose.yml`˙files.
+This script will do some process checks (whether Docker is running, and the necessary ports are free), as well as run the `Dockerfile` and `docker-compose.yml`˙files.
 
 A guest user is set up for the database in the `docker-compose.yml` file.
 
