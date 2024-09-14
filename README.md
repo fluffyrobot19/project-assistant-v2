@@ -27,17 +27,19 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 
 ### Dependencies
 
-You will need Postgres and Docker to run the app.
+You will need Docker to run the app.
 
 ### How to run at this stage of development
 
-Please run the `RUN.sh` script from your terminal. 
+First, please make sure that you have Docker running.
 
-This script will help set up your `.env` file as well as run the `Dockerfile` and `docker-compose.yml` files. 
+Then please run the `RUN.sh` script from your terminal. 
 
-Please also make sure to have your Docker application running and your Postgres server NOT running as there might be a conflict.
+This script will check if port 3000 and 5432 are free, for Flask and Postgres, as well as run the `Dockerfile` and `docker-compose.yml`˙files.
 
-After finishing, the script will also remove the recently created Docker image as well as `.env` file.
+A guest user is set up for the database in the `docker-compose.yml` file.
+
+After finishing, the script will also remove the recently created Docker image.
 
 ### Coming up...
 

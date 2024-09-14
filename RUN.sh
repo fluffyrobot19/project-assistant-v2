@@ -1,35 +1,44 @@
 #!/bin/bash
-# setting env variables
+
 echo "Welcome to running Project Assistant!"
-echo "You will now be prompted to set your environmental variables, which are necessary to run the program."
+
+# checking if ports are free
+netstat_port_5432=$(netstat -an --tcp | grep ':5432 ')
+ss_port_5432=$(ss -tuln | grep ':5432 ')
+netstat_port_3000=$(netstat -an --tcp | grep ':3000 ')
+ss_port_3000=$(ss -tuln | grep ':3000 ')
+
+if [[ -z "$netstat_port_3000" || -z "$ss_port_3000" ]]; then
+	echo "***Port 3000 is free***"
+else
+	echo "A process seems to be running on port 3000. Please stop the process before starting the script again."
+	exit 0
+fi
+
+if [[ -z "$netstat_port_5432" || -z "$ss_port_5432" ]]; then
+	echo "***Port 5432 is free***"
+else
+	echo "A process seems to be running on port 5432. Please stop the process before starting the script again."
+	exit 0
+fi
 echo
 
-read -p "Please enter your Postgres username: " db_username
-read -p "Please enter your Postgres password: " db_password
-
-echo "DB_USERNAME='$db_username'" >> .env
-echo "DB_PASSWORD='$db_password'" >> .env
-echo "DB_PORT=5432" >> .env
-echo "SECRET_KEY='secret_key'" >> .env
-echo
-echo '***The .env file has been created.***'
-echo
 # running docker
 read -p "The Dockerfile and docker-compose.yml files will be run now. Please press 'y' in order to proceed: " user_input
+echo
 
 if [[ "$user_input" == "y" ]]; then
 	docker-compose build
 	docker-compose up -d
 	echo
 	echo "Visit Project Assistant at http://localhost:3000"
-	read -p "Press 'd' in order to stop the container, remove the image as well as the .env file: " down
+	read -p "Press 'd' in order to stop the program and remove the Docker image: " down
 	if [[ "$down" == "d" ]]; then
 		docker-compose down
 		docker rmi $(docker images | awk '{print $1}' | awk 'NR==2')
-		rm $(find . -type f -name ".env")
 	fi
 else
 	echo "Exiting the program now."
-	exit
+	exit 0
 fi
 
