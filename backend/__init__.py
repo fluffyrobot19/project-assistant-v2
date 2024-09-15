@@ -24,8 +24,8 @@ def create_server():
     app.register_blueprint(projects_bp)
     app.register_blueprint(reports_bp)
     app.register_blueprint(users_api_bp)
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://guest_user:guest_password@db:5432/pa_db'
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://{os.getenv("DB_USERNAME")}:{os.getenv("DB_PASSWORD")}@localhost:{os.getenv("DB_PORT")}/pa_db'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://guest_user:guest_password@db:5432/pa_db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://{os.getenv("DB_USERNAME")}:{os.getenv("DB_PASSWORD")}@localhost:{os.getenv("DB_PORT")}/pa_db'
     app.config['SESSION_COOKIE_SAMESITE'] = "strict"
     app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True

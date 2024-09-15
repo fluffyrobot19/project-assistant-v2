@@ -33,7 +33,7 @@ You will need Docker to run the app.
 
 Please run the `RUN.sh` script from a Bash terminal. 
 
-This script will do some process checks (whether Docker is running, and the necessary ports are free), as well as run the `Dockerfile` and `docker-compose.yml`˙files.
+This script will do some process checks (whether Docker is running, and the necessary ports are free), as well as run the `Dockerfile` and `docker-compose.yml` files.
 
 A guest user is set up for the database in the `docker-compose.yml` file.
 
