@@ -6,7 +6,7 @@ from flask_login import LoginManager, login_manager
 from flask_wtf import CSRFProtect
 from backend.controllers.login import login_bp
 from backend.controllers.home import home_bp
-from backend.controllers.api.get_users import users_api_bp
+from backend.controllers.api.api_user import user_api_bp
 from backend.controllers.projects import projects_bp
 from backend.controllers.reports import reports_bp
 from backend.controllers.user_profile import user_profile_bp
@@ -23,9 +23,9 @@ def create_server():
     app.register_blueprint(user_profile_bp)
     app.register_blueprint(projects_bp)
     app.register_blueprint(reports_bp)
-    app.register_blueprint(users_api_bp)
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://guest_user:guest_password@db:5432/pa_db'
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://{os.getenv("DB_USERNAME")}:{os.getenv("DB_PASSWORD")}@localhost:{os.getenv("DB_PORT")}/pa_db'
+    app.register_blueprint(user_api_bp)
+    # app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://guest_user:guest_password@db:5432/pa_db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql+psycopg2://{os.getenv("DB_USERNAME")}:{os.getenv("DB_PASSWORD")}@localhost:{os.getenv("DB_PORT")}/pa_db'
     app.config['SESSION_COOKIE_SAMESITE'] = "strict"
     app.config['SESSION_COOKIE_SECURE'] = True
     app.config['SESSION_COOKIE_HTTPONLY'] = True

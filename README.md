@@ -35,7 +35,10 @@ Please run the `RUN.sh` script from a Bash terminal.
 
 This script will do some process checks (whether Docker is running, and the necessary ports are free), as well as run the `Dockerfile` and `docker-compose.yml` files.
 
-A guest user is set up for the database in the `docker-compose.yml` file.
+You may log in with the following test user credentials:
+
+    username: happy_sloth
+    password: password123
 
 After finishing, the script will also remove the recently created Docker image.
 
