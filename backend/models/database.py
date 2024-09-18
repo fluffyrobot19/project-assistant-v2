@@ -16,7 +16,7 @@ def init_db(app):
 
 
 def populate_db(app):
-    from backend.models.models import User
+    from backend.models.model_user import User
     with app.app_context():
         with open('backend/models/test_users.json', 'r') as file:
             users = json.load(file)

@@ -4,13 +4,14 @@ from flask_login import current_user
 from werkzeug.security import generate_password_hash
 from backend.extensions import db
 from backend.models.forms.user_profile_form import UserProfileForm
+from backend.models.model_user import User
 
 user_profile_bp = Blueprint('user_profile', __name__)
 
 
 @user_profile_bp.route('/my-profile', methods=['GET', 'POST'])
 def index():
-    user = requests.get(f"http://localhost:3000/api/user/{current_user.id}").json()
+    user = User.get_user(current_user.id)
     form = UserProfileForm(obj=current_user)
     disclaimer = 'Your request to change your authorization level will be sent to a user with a high authorization level for approval.'
     show_disclaimer = False

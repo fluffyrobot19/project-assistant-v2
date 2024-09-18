@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, render_template, url_for, session
 from flask_login import login_user
 from backend.models.forms.login_form import LoginForm
-from backend.models.models import User
+from backend.models.model_user import User
 
 login_bp = Blueprint('login', __name__)
 
