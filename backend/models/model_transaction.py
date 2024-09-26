@@ -1,7 +1,4 @@
-from enum import Enum
 from backend.extensions import db
-from backend.models.enums import TransactionCode, Currency
-
 
 class Transaction(db.Model):
     __tablename__ = 'transactions'
@@ -9,13 +6,13 @@ class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     budget_id = db.Column(db.Integer, db.ForeignKey('budgets.id'))
     budget = db.relationship('Budget', back_populates='transaction')
-    code = db.Column(Enum(TransactionCode))
+    code = db.Column(db.Text())
     description = db.Column(db.String(100))
     quantity = db.Column(db.Integer)
     amount_per_quantity = db.Column(db.Integer)
     original_amount = db.Column(db.Integer)
-    original_currency = db.Column(Enum(Currency))
-    target_currency = db.Column(Enum(Currency))
+    original_currency = db.Column(db.Text())
+    target_currency = db.Column(db.Text())
     target_amount = db.Column(db.Integer)
 
     def __init__(self, budget_id, code, description, quantity, amount_per_quantity, original_amount, original_currency, target_currency, target_amount):

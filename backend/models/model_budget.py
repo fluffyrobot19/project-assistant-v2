@@ -1,15 +1,12 @@
-from enum import Enum
 from sqlalchemy import ARRAY
 from backend.extensions import db
-from backend.models.enums import BudgetType
-
 
 class Budget(db.Model):
     __tablename__ = 'budgets'
 
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-    budget_type = db.Column(Enum(BudgetType))
+    budget_type = db.Column(db.Text())
     transaction = db.relationship('Transaction', back_populates='budget')
     deadlines = db.Column(ARRAY(db.Date))
 

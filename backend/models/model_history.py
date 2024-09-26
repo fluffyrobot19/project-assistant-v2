@@ -1,6 +1,5 @@
 from backend.extensions import db
 
-
 class History(db.Model):
     __tablename__ = 'history'
 

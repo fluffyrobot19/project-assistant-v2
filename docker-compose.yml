@@ -1,12 +1,10 @@
-version: '3.8'
-
 services:
   web:
-    build: ..
+    build: .
     container_name: flask_app
     restart: always
     env_file:
-      - ../.env
+      - ./.env
     ports:
       - "3000:3000"
     depends_on:
@@ -29,8 +27,8 @@ services:
       POSTGRES_DB: pa_db
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    # volumes:
+      # - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:

@@ -5,8 +5,24 @@ os=$(uname -s)
 netstat=$(command -v netstat)
 lsof=$(command -v lsof)
 docker=$(pgrep -l dockerd)
+docker_is=$(docker --version)
+docker_compose_is=$(docker-compose --version)
 
-# checking docker
+# checking docker and docker-compose
+if [[ -n "$docker_is" ]]; then
+	echo "✓ Docker is installed"
+else
+	echo "✗ Error: Docker is not installed."
+fi
+
+if [[ -n "$docker_compose_is" ]]; then
+	echo "✓ Docker-compose is installed"
+else
+	echo "✗ Error: Docker-compose is not installed."
+fi
+
+
+# checking docker running
 if [[ -n "$docker" ]]; then
 	echo "✓ Docker is running"
 else
@@ -16,7 +32,7 @@ fi
 # checking ports
 confirm_ports () {
         if [[ -z "$1" ]]; then
-                echo "✓ port $2 is free"
+                echo "✓ Port $2 is free"
         else
                 echo "✗ Error: A process seems to be running on port $2. Please stop the process before running the script again."
         fi

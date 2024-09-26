@@ -9,8 +9,6 @@ from backend.models.enums import AuthLevel
 def init_db(app):
     db.init_app(app)
     with app.app_context():
-        clear_db(app)
-        create_enums(app)
         db.create_all()
     print('Database created successfully')
 
@@ -28,33 +26,10 @@ def populate_db(app):
                     email=user['email'],
                     username=user['username'],
                     password=user['password'],
-                    auth_level=AuthLevel.LOW
+                    auth_level="LOW"
                 )
 
                 db.session.add(new_user)
 
             db.session.commit()
             print('Populated database')
-
-
-def create_enums(app):
-    with app.app_context():
-        db.session.execute(text("CREATE TYPE AuthLevel AS ENUM ('HIGH', 'MID', 'LOW');"))
-        db.session.execute(text("CREATE TYPE BudgetType AS ENUM ('actual', 'target');"))
-        db.session.execute(text("CREATE TYPE TransactionCode AS ENUM ('A', 'B', 'C');"))
-        db.session.execute(text("CREATE TYPE Currency AS ENUM ('HUF', 'EUR', 'USD');"))
-        db.session.commit()
-
-
-def clear_db(app):
-    with app.app_context():
-        db.session.execute(text("DROP TABLE IF EXISTS members CASCADE;"))
-        db.session.execute(text("DROP TABLE IF EXISTS projects CASCADE;"))
-        db.session.execute(text("DROP TABLE IF EXISTS budgets CASCADE;"))
-        db.session.execute(text("DROP TABLE IF EXISTS reports CASCADE;"))
-        db.session.execute(text("DROP TABLE IF EXISTS transactions CASCADE;"))
-        db.session.execute(text("DROP TYPE AuthLevel CASCADE;"))
-        db.session.execute(text("DROP TYPE BudgetType CASCADE;"))
-        db.session.execute(text("DROP TYPE TransactionCode CASCADE;"))
-        db.session.execute(text("DROP TYPE Currency CASCADE;"))
-        db.session.commit()

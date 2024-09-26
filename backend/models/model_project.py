@@ -2,7 +2,6 @@ from sqlalchemy.orm import backref
 from backend.extensions import db
 from backend.models.association_tables import user_project_association
 
-
 class Project(db.Model):
     __tablename__ = 'projects'
 
@@ -14,7 +13,7 @@ class Project(db.Model):
     budget_id = db.relationship('Budget', backref=backref('project', uselist=False))
     report = db.relationship('Report', back_populates='project')
     history = db.Column(db.Text())
-    user = db.relationship('User', secondary=user_project_association, back_populates='project')
+    users = db.relationship('User', secondary=user_project_association, back_populates='projects')
 
     def __init__(self, full_name, abbrev, start_date, end_date, budget):
         self.full_name = full_name

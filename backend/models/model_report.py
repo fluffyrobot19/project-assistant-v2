@@ -1,6 +1,5 @@
 from backend.extensions import db
 
-
 class Report(db.Model):
     __tablename__ = 'reports'
 
