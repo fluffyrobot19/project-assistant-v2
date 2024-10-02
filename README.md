@@ -15,7 +15,7 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 **Personal goals**
 
 - Learning a new stack (Python / Flask) and server-side rendering
-- Practicing containerization and building CI/CD pipeline
+- Practicing containerization and process automation with scripts
 - Advancing my learning process in AWS resources
 
 ### Built with
@@ -24,6 +24,8 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) <br>
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) <br>
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) <br>
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) <br>
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) <br>
 
 ### Dependencies
 
@@ -45,5 +47,3 @@ After finishing, the script will also remove the recently created Docker image.
 ### Coming up...
 
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) <br>
-![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) <br>
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) <br>
