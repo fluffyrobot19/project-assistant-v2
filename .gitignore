@@ -9,3 +9,8 @@ __pycache__/
 
 docker-compose.override.yml
 *.log
+
+*.terraform
+*.terraform.*
+*.tfstate
+*.tfstate.*
