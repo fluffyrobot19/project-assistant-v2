@@ -1,4 +1,3 @@
-# ecr repository
-resource "aws_ecr_repository" "project_assistant_ecr" {
-	name = "project-assistant-ecr"
+resource "aws_ecr_repository" "pa_ecr" {
+	name = "pa-ecr"
 }
