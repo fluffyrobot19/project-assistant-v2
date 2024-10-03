@@ -4,7 +4,7 @@ resource "aws_subnet" "pa_public_subnets" {
 	cidr_block = cidrsubnet(aws_vpc.pa_vpc.cidr_block, 8, count.index)
 
 	tags = {
-		Name = "PA-public-SN-${count.index + 1}"
+		Name = "pa-public-sn-${count.index + 1}"
 	}
 }
 
@@ -14,7 +14,7 @@ resource "aws_subnet" "pa_private_subnets" {
 	cidr_block = cidrsubnet(aws_vpc.pa_vpc.cidr_block, 8, count.index+3)
 
 	tags = {
-		Name = "PA-private-SN-${count.index + 1}"
+		Name = "pa-private-sn-${count.index + 1}"
 	}
 }
 
@@ -22,7 +22,7 @@ resource "aws_internet_gateway" "pa_igw" {
 	vpc_id = aws_vpc.pa_vpc.id
 
 	tags = {
-		Name = "PA-VPC-IGW"
+		Name = "pa-vpc-igw"
 	}
 }
 
@@ -35,7 +35,7 @@ resource "aws_route_table" "pa_public_rt" {
 	}
 
 	tags = {
-		Name = "PA-public-RT"
+		Name = "pa-public-rt"
 	}
 }
 
@@ -49,7 +49,7 @@ resource "aws_route_table" "pa_private_rt" {
 	vpc_id = aws_vpc.pa_vpc.id
 
 	tags = {
-		Name = "PA-private-RT"
+		Name = "pa-private-rt"
 	}
 }
 
