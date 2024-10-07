@@ -1,0 +1,7 @@
+{
+  "pa_ec2_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "34.247.155.175"
+  }
+}

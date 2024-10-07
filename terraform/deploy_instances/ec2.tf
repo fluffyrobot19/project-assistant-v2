@@ -33,6 +33,7 @@ resource "aws_instance" "pa_ec2" {
 	subnet_id = local.public_subnet_id
 	security_groups = [aws_security_group.pa_ec2_sg.id]
 	key_name = var.my_key_pair 
+	associate_public_ip_address = true	
 
 	tags = {
 		Name = "pa-ec2"

@@ -16,4 +16,5 @@ docker-compose.override.yml
 *.tfstate.*
 terraform.tfvars
 terraform/deploy_vpc/backend_vpc.tf
+terraform/deploy_instances/backend.tf
 terraform/deploy_instances/backend_instances.tf

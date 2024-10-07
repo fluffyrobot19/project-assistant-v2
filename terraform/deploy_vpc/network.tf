@@ -2,6 +2,7 @@ resource "aws_subnet" "pa_public_subnets" {
 	count = 3
 	vpc_id = aws_vpc.pa_vpc.id
 	cidr_block = cidrsubnet(aws_vpc.pa_vpc.cidr_block, 8, count.index)
+	map_public_ip_on_launch = true
 
 	tags = {
 		Name = "pa-public-sn-${count.index + 1}"
