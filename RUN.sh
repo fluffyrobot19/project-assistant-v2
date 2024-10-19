@@ -1,43 +1,46 @@
 #!/bin/bash
 
+os=$(uname)
 echo "Welcome to running Project Assistant!"
+echo "Your os has been identified as "$os"".
 
-# checking all processes
-./process_checks.sh
+prompt() {
+	echo "You can run PA locally, in Docker or in AWS with the help of Terraform. Please enter the number of your choice while taking the dependencies into consideration:"
+	echo "	1. run locally - dependencies: python3, postgresql"
+	echo "	2. run in Docker - dependencies: docker, docker-compose"
+	echo "	3. run in AWS with Terraform - dependencies: AWS authentication, terraform"
 
-if ./process_checks.sh | grep -q '✗'; then
-	echo "Exiting the program now."
-	exit 0
-fi
+	while true; do
+		read user_choice
 
-# running docker
+		if [[ "$user_choice" == "1" ]]; then
+			cd scripts
+			./process_checks.sh "$1" "local"
+			./run_local.sh
+			break
+		elif [[ "$user_choice" == "2" ]]; then
+			cd scripts
+			./process_checks.sh "$1" "docker"
+			./run_docker.sh
+			break
+		elif [[ "$user_choice" == "3" ]]; then
+			echo "$user_choice"
+			break
+		else
+			echo "Invalid input. Please choose from the above options."
+		fi
+	done
+}
+
 while true; do
-	read -p "The Dockerfile and docker-compose.yml files will be run now. Please press 'y' in order to proceed or 'q' to quit running the program: " user_input
-	echo
+	read -p "Please confirm with 'y' otherwise press 'q' to exit the program: " confirmation
 
-	if [[ "$user_input" == "y" ]]; then
-		docker-compose build
-		docker-compose up -d
-		echo
-		echo "Visit Project Assistant at http://localhost:3000"
-		echo
+	if [[ "$confirmation" == "y" ]]; then
+		prompt "$os"
 		break
-	elif [[ "$user_input" == "q" ]]; then
+	elif [[ "$confirmation" == "q" ]]; then
 		exit 0
 	else
-		echo "Invalid input. Please press 'y' to proceed or 'q' to quit running the program."
+		echo "Invalid input."
 	fi
 done
-
-while true; do
-	read -p "Press 'd' in order to stop the program and remove the Docker image: " down
-	if [[ "$down" == "d" ]]; then
-		docker-compose down -v
-		docker rmi $(docker images | awk '{print $1}' | awk 'NR==2')
-		break
-	else
-		echo "Invalid input. Please press 'd' to stop the program."
-	fi
-done
-exit 0
-
