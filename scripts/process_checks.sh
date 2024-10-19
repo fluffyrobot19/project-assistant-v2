@@ -7,12 +7,19 @@ lsof=$(command -v lsof)
 
 # checking ports
 confirm_ports () {
-        if [[ -z "$1" ]]; then
-                echo "✓ port $2 is free"
-        else
-                echo "✗ Error: A process seems to be running on port $2. Please stop the process before running the script again."
+	if [[ "$3" == "local" && "$2" == "5432" ]]; then
+		if [[ -z "$1" ]]; then
+			echo "✗ Error: postgres service is not running on port $2. Please start postgres service before running the script again."
+			exit 1
+		else
+			echo "✓ port $2 is not free"
+		fi
+	elif [[ -z "$1" ]]; then
+		echo "✓ port $2 is free"
+	else
+		echo "✗ Error: A process seems to be running on port $2. Please stop the process before running the script again."
 		exit 1
-        fi
+	fi
 }
 
 for port in "${ports[@]}"; do
@@ -21,7 +28,7 @@ for port in "${ports[@]}"; do
 			netstat_port=$(netstat -an --tcp | grep ":$port ")
 		fi
 
-		confirm_ports "$netstat_port" "$port"
+		confirm_ports "$netstat_port" "$port" "$2"
 	elif [[ "$1" == "Darwin" ]]; then
 		if [[ -n "$lsof" ]]; then
 			netstat_port=$(lsof -i tcp:"$port")
@@ -51,7 +58,6 @@ if [[ "$2" == "local" ]]; then
 		echo "✗ Error: postgresql is not installed. Exiting now."
 		exit 1
 	fi
-
 fi
 
 # docker

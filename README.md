@@ -28,22 +28,29 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) <br>
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) <br>
 
-### Dependencies
-
-You will need Docker to run the app.
-
 ### How to run at this stage of development
 
-Please run the `RUN.sh` script from a Bash terminal. 
+Please run the `RUN.sh` script from a Bash terminal. The script will ask where you would like to run the application.
 
-This script will do some process checks (whether Docker is running, and the necessary ports are free), as well as run the `Dockerfile` and `docker-compose.yml` files.
+**Dependencies**
 
-You may log in with the following test user credentials:
+There are 3 options for running it:
+- Running locally
+  - Dependencies: python3 / postgresql
+- Running in Docker
+  - Dependencies: docker / docker-compose
+- *Running in AWS with Terraform - Coming soon...*
+
+
+This script will do some process checks (whether the necessary ports are free and dependencies are installed), and then prompt you to start the application or opt-out from running it.
+
+**Login**
+
+Once you see the main page, you may log in with the following test user credentials:
 
     username: happy_sloth
     password: password123
 
-After finishing, the script will also remove the recently created Docker image.
 
 ### Coming up...
 
