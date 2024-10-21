@@ -30,16 +30,16 @@ Its purpose is to alleviate the reliance on multiple spreadsheets for tracking p
 
 ### How to run at this stage of development
 
-Please run the `RUN.sh` script from a Bash terminal. The script will ask where you would like to run the application.
+Please run the `RUN.sh` script from a Bash terminal.
+There are 3 options for running the application:
 
-**Dependencies**
+1. **Running locally**
+  - Dependencies: python3 / postgresql / postgres account with admin privileges for the database connection
 
-There are 3 options for running it:
-- Running locally
-  - Dependencies: python3 / postgresql
-- Running in Docker
+2. **Running in Docker**
   - Dependencies: docker / docker-compose
-- *Running in AWS with Terraform - Coming soon...*
+
+3. **Running in AWS with Terraform - Coming soon...**
 
 
 This script will do some process checks (whether the necessary ports are free and dependencies are installed), and then prompt you to start the application or opt-out from running it.
@@ -51,7 +51,9 @@ Once you see the main page, you may log in with the following test user credenti
     username: happy_sloth
     password: password123
 
+**Sensitive information**
 
+The `RUN.sh` script will save your postgres username and password to a `.pgpass` file in your home directory. This file helps facilitate the database connection and set up the Project Assistant database. The file will be deleted after the script finishes.
 ### Coming up...
 
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) <br>
