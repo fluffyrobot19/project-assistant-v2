@@ -1,5 +1,6 @@
 [
   {
+    "active": "active",
     "first_name": "Timothy",
     "last_name": "Sloth",
     "email": "timothy.sloth@example.com",
@@ -7,6 +8,7 @@
     "password": "password123"
   },
   {
+    "active": "active",
     "first_name": "Olivia",
     "last_name": "Penguin",
     "email": "olivia.penguin@example.com",
@@ -14,6 +16,7 @@
     "password": "penguin456"
   },
   {
+    "active": "inactive",
     "first_name": "Harold",
     "last_name": "Panda",
     "email": "harold.panda@example.com",

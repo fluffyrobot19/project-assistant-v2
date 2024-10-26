@@ -1,1 +1,15 @@
 {% extends 'base_home.html' %}
+
+{% block content %}
+<div id="projects-container">
+    <div>Projects
+        {% for project in projects %}
+            <div>
+               {{ project }}
+            </div>
+        {% endfor %}
+        <button>Add new project</button>
+    </div>
+
+</div>
+{% endblock %}
