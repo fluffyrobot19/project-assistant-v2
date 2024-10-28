@@ -17,12 +17,13 @@ class User(db.Model, UserMixin):
     username = db.Column(db.Text())
     password = db.Column(db.Text())
     auth_level = db.Column(db.Text())
+    # many-to-many
     projects = db.Column(ARRAY(db.Integer))
     projects_relation = db.relationship('Project', secondary=user_project_association, back_populates='users_relation')
-    history = db.Column(ARRAY(db.Integer,db.ForeignKey('pa_user_action.id')))
-    history_relation = db.Relationship('UserAction', back_populates='action_owner')
-    queue = db.Column(ARRAY(db.Integer, db.ForeignKey('pa_user_action.id')))
-    queue_relation = db.Relationship('UserAction', back_populates='action_approver')
+    # one-to-many
+    history = db.Relationship('UserAction', back_populates='action_owner_relation')
+    # one-to-many
+    queue = db.Relationship('UserAction', back_populates='action_approver_relation')
 
     def __init__(self, activity, first_name, last_name, email, username, password, auth_level):
         self.active = activity

@@ -15,6 +15,14 @@ class Transaction(db.Model):
     target_currency = db.Column(db.Text())
     target_amount = db.Column(db.Integer)
 
+    # one-to-many
+    history = db.relationship(
+        'UserAction',
+        primaryjoin="and_(UserAction.record_id == Transaction.id, UserAction.record_type == 'transaction')",
+        backref='transaction'
+    )
+
+    '''
     def __init__(self, budget_id, code, description, quantity, amount_per_quantity, original_amount, original_currency, target_currency, target_amount):
         self.budget_id = budget_id
         self.code = code
@@ -25,3 +33,4 @@ class Transaction(db.Model):
         self.original_currency = original_currency
         self.target_currency = target_currency
         self.target_amount = target_amount
+    '''
